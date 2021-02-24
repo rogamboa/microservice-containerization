@@ -16,12 +16,12 @@ install:
 	pip3 install --upgrade pip && \
 	pip3 install -r requirements.txt
 	pip3 install pylint
-	wget -O ~/.devops/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 && \
-	chmod +x ~/.devops/bin/hadolint
+	wget -O ./hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 && \
+	chmod +x ./hadolint
 
 lint:
 	# Linter for Dockerfiles
-	hadolint Dockerfile
+	./hadolint Dockerfile
 	# This should be run from inside a virtualenv
 	pylint --disable=R,C,W1203 app.py
 
